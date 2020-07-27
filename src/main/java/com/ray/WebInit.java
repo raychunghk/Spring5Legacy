@@ -14,10 +14,13 @@ public class WebInit implements WebApplicationInitializer {
 
         var ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(WebConfig.class);
+
         ctx.setServletContext(servletContext);
         System.out.println(" Welcome from WebInit");
+
         var servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
+
     }
 }
