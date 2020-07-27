@@ -2,20 +2,29 @@ plugins {
 
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
-   // id "org.gretty" version "3.0.3"
+  id "org.gretty" version "3.0.3"
     id 'war'
 }
-//apply plugin: "org.gretty"
+ apply plugin: "org.gretty"
 group = 'com.ray'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
-
+project.webAppDirName = 'src/main/webapp'
 
 repositories {
     mavenLocal()
     mavenCentral()
-
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
     jcenter()
+}
+gretty {
+    httpPort = 8082
+    contextPath = '/'
+    servletContainer = 'jetty9'
+    httpEnabled = true
+    logDir="/logs"
 }
 dependencies {
 
@@ -52,7 +61,17 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
 
     // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper
-    compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.36'
+     compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.36'
+    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jsp
+    //compile group: 'org.eclipse.jetty', name: 'jetty-jsp', version: '9.2.30.v20200428'
+// https://mvnrepository.com/artifact/org.eclipse.jetty/apache-jsp
+    def jettyVersion = '9.4.30.v20200611'
+
+   /* compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: jettyVersion
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlets', version: jettyVersion
+   compile group: 'org.eclipse.jetty', name: 'jetty-annotations', version: jettyVersion
+    compile group: 'org.eclipse.jetty', name: 'apache-jsp', version: jettyVersion
+  compile group: 'org.eclipse.jetty', name: 'apache-jstl', version: jettyVersion*/
     // https://mvnrepository.com/artifact/com.github.v-ladynev/fluent-hibernate-core
     compile group: 'com.github.v-ladynev', name: 'fluent-hibernate-core', version: '0.3.1'
     //  compile 'com.github.v-ladynev:fluent-hibernate-core:0.3.1'
