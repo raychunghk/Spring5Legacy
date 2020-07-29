@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import java.util.concurrent.TimeUnit;
-
+//https://www.youtube.com/watch?v=MNgliKze8oI&list=PLsyeobzWxl7rjSO6xX00UWmVhL90i-cOk&index=10
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.ray.controller", "com.ray.config", "com.ray.dao", "com.ray.service"})
