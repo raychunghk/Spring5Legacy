@@ -88,6 +88,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.springframework/spring-orm
     compile group: 'org.springframework', name: 'spring-orm', version: '5.2.8.RELEASE'
+// https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
 
 }
 test {
